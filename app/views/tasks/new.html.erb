@@ -1,8 +1,13 @@
 <h1>NEW RESTAURANT</h1>
 
-<form action = "tasks" method= "post">
-  <input type="text" name= "title">
-  <input type="text" name= "details">
-  <input type="boolean" default= 'false'>
+<%= form_for(@task) do |t| %>
+  <%= t.label :title %>
+  <%= t.text_field :title %>
+  <%= t.label :details %>
+  <%= t.text_field :details %>
+  <%= t.label :completed %>
+  <%= t.check_box :completed %>
+  <%= t.submit %>
+<% end %>
 
-</form>
+<p><%= link_to "Back to index",tasks_path %> </p>
