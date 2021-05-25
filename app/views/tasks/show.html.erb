@@ -1,2 +1,7 @@
-<h1> <%=Show the tasks</h1>
+<h1>Show the tasks</h1>
 
+<h2><%= @task.title %></h2>
+
+<%= @task.details %>
+
+<%= link_to "Back to index",tasks_path %>
