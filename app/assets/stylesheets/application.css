@@ -13,3 +13,20 @@
  *= require_tree .
  *= require_self
  */
+@import "tasks/index";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+
+body {
+  background-color: rgb(255, 255, 255);
+  margin-left: 80px;
+  margin-right: 80px;
+}
+
+
+#container {
+  padding: 15px;
+  min-height: 100vh;
+  background-color: #DCE6B6;
+}
