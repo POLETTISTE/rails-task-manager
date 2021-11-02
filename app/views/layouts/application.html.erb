@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-
-    <title>Poolandtea </title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RailsTaskManager</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -15,10 +11,6 @@
   </head>
 
   <body>
-      <%= render 'shared/navbar' %>
-    <div id="container">
-      <%= yield %>
-    </div>
+    <%= yield %>
   </body>
-  <%= render 'shared/footer' %>
 </html>
