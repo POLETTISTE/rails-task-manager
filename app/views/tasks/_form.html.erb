@@ -1,21 +1,30 @@
 <%= form_for(@task) do |f| %>
   <div class="form-group">
-    <%= f.label :title %>
+    <%= f.label :title, 'Titre'%>
     <%= f.text_field :title, class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= f.label :details %>
+    <%= f.label :details, 'Détails' %>
     <%= f.text_area :details, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :deadline, 'Echéance' %>
+    <%= f.date_field :deadline , as: :date, :id => "datepicker", class: 'form-control' %>
   </div>
 
   <% unless f.object.new_record? %>
     <div class="checkbox">
       <label>
-        <%= f.check_box :completed %> Completed
+        <%= f.check_box :completed %> Fait !
       </label>
     </div>
   <% end %>
 
-  <%= f.submit class: 'btn btn-primary' %>
+  <%= f.submit 'Valider', class: 'btn btn-primary' %>
 <% end %>
+
+<script>
+$('#datepicker').datepicker({format: 'dd/mm/yyyy'});
+</script>

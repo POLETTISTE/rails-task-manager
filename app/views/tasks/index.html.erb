@@ -1,63 +1,58 @@
-<h1>LIST OF TASKS :</h1>
 
-<h2>TO DO</h2>
-  <div class="to-do">
+
+<h1 class="border border-success bg-success text-center mb-5 p-3">TO DO LIST</h1>
+
+<div class="container text-center d-flex flex-column justify-content-around">
+  <div class="todo-list text-left mb-5 ">
+    <h2 class="text-center m-3">A FAIRE</h2>
     <ul>
       <% @tasks.each do |task| %>
-        <li>
-          <% unless task.completed %>
-            <i class="fa fa-check-square"></i>
-            <%= task.title  %>
-          <% end %>
-          <%= link_to task.title.upcase!, task_path(task.id) %>
-          <%= link_to task_path(task.id), method: :delete, data: { confirm: "Are you really sure to delete #{task.title} ?? 😱" } do %>
-          ----
-            <i class="fa fa-trash" aria-hidden="true"></i>
-         <% end %>
-        </li>
+      <li>
+        <% unless task.completed %>
+        <i class="far fa-square"></i>
+        <%= link_to task.title.upcase, task_path(task) %>
+
+        <%= link_to edit_task_path(task) do%>
+        <i class="fa fa-book-open text-warning"></i>
+        <% end %>
+
+        <%= link_to task_path(task), method: :delete, data: { confirm: "Are you really sure to delete #{task.title} ?? 😱" } do %>
+        <i class="fa fa-trash text-danger" aria-hidden="true"></i>
+        <% end %>
+
+        <% end %>
+      </li>
       <% end %>
     </ul>
-</div>
-
-<h2>DONE</h2>
+  </div>
 
 
- <div class="to-do">
-    <ul>
-      <% @tasks.each do |task| %>
-        <li>
-          <% if !task.completed %>
-           <i class="fa fa-check-square"></i>
-           <%= task.title  %>
-
-          <% else %>
-           <i class="fa fa-square"></i>
-          <% end %>
-
-
-
-
-          <%= link_to task.title.upcase!, task_path(task.id) %>
-          <%= link_to task_path(task.id), method: :delete, data: { confirm: "Are you really sure to delete #{task.title} ?? 😱" } do %>
-           ----
-           <i class="fa fa-trash" aria-hidden="true"></i>
-          <% end %>
-        </li>
+  <div class="todo-list text-left">
+   <h2 class="text-center m-3">FINIES</h2>
+   <ul>
+    <% @tasks.each do |task| %>
+    <li>
+      <% if task.completed %>
+      <i class="fa fa-check-square" aria-hidden="true"></i>
+      <%= link_to task.title.upcase, task_path(task) %>
+      <%= link_to edit_task_path(task) do%>
+      <i class="fa fa-book-open text-warning"></i>
       <% end %>
-    </ul>
+      <%= link_to task_path(task), method: :delete, data: { confirm: "Are you really sure to delete #{task.title} ?? 😱" } do %>
+      <i class="fa fa-trash text-danger" aria-hidden="true"></i>
+      <% end %>
+      <% end %>
+    </li>
+    <% end %>
+  </ul>
 </div>
 
+</div>
 
-
-
-
-
-
-
-
-
-
-
-<%= link_to new_task_path do %>
-  <i class="fa fa-plus"></i> Add a new task
-<% end %>
+<div class="text-center p-5">
+  <%= link_to new_task_path do %>
+  <span class="btn btn-primary p-3">
+    <i class="fa fa-plus"></i> AJOUTER UNE TÂCHE
+  </span>
+  <% end %>
+</div>

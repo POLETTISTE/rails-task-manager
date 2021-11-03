@@ -1,11 +1,8 @@
 
-#tasks a {
-
-  color:green;
-  font-size:20px;
+body > div.container.text-center > div > ul > li > a{
   text-decoration: none;
-
-
+  color: black;
+  font-size:20px;
 }
 
 ul {
@@ -13,7 +10,14 @@ ul {
 }
 
 i {
-  font-size: 20px;
+  font-size: 16px;
 }
 
+.todo-list {
+    border:1px solid black;
+}
 
+h2 {
+  width:auto;
+  min-width: 50vh
+}
