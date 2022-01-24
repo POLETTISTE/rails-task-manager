@@ -1,15 +1,15 @@
 
 
-<h1 class="border border-success bg-success text-center mb-5 p-3">TO DO LIST</h1>
+<h1 class="border border-success bg-success text-center mt-5 mb-5 p-3">TO DO LIST</h1>
 
-<div class="container text-center d-flex flex-column justify-content-around">
-  <div class="todo-list text-left mb-5 ">
-    <h2 class="text-center m-3">A FAIRE</h2>
-    <ul>
+<div class="container d-flex align-items-start p-0 " id="todolist">
+  <div class="todo-list text-left m-0 d-flex flex-column">
+  <h2 class="text-center">A FAIRE</h2>
+    <ul class="m-auto mt-0 p-0 w-75">
       <% @tasks.each do |task| %>
-      <li>
+      <li >
         <% unless task.completed %>
-        <i class="far fa-square"></i>
+        ❌
         <%= link_to task.title.upcase, task_path(task) %>
 
         <%= link_to edit_task_path(task) do%>
@@ -17,7 +17,7 @@
         <% end %>
 
         <%= link_to task_path(task), method: :delete, data: { confirm: "Are you really sure to delete #{task.title} ?? 😱" } do %>
-        <i class="fa fa-trash text-danger" aria-hidden="true"></i>
+        <i class="fa fa-trash text-danger ml-1" aria-hidden="true"></i>
         <% end %>
 
         <% end %>
@@ -27,13 +27,13 @@
   </div>
 
 
-  <div class="todo-list text-left">
-   <h2 class="text-center m-3">FINIES</h2>
-   <ul>
+  <div class="todo-list text-left m-0 d-flex flex-column">
+   <h2 class="text-center">FINIES</h2>
+   <ul class="m-auto mt-0 p-0 w-75">
     <% @tasks.each do |task| %>
     <li>
       <% if task.completed %>
-      <i class="fa fa-check-square" aria-hidden="true"></i>
+      ✅
       <%= link_to task.title.upcase, task_path(task) %>
       <%= link_to edit_task_path(task) do%>
       <i class="fa fa-book-open text-warning"></i>
@@ -51,7 +51,7 @@
 
 <div class="text-center p-5">
   <%= link_to new_task_path do %>
-  <span class="btn btn-primary p-3">
+  <span class="btn btn-primary p-3 text-white">
     <i class="fa fa-plus"></i> AJOUTER UNE TÂCHE
   </span>
   <% end %>

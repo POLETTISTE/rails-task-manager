@@ -1,3 +1,4 @@
+<div class="form mt-5">
 <%= form_for(@task) do |f| %>
   <div class="form-group">
     <%= f.label :title, 'Titre'%>
@@ -11,7 +12,7 @@
 
   <div class="form-group">
     <%= f.label :deadline, 'Echéance' %>
-    <%= f.date_field :deadline , as: :date, :id => "datepicker", class: 'form-control' %>
+    <%= f.date_field :deadline , as: :date, class: 'form-control' %>
   </div>
 
   <% unless f.object.new_record? %>
@@ -24,7 +25,4 @@
 
   <%= f.submit 'Valider', class: 'btn btn-primary' %>
 <% end %>
-
-<script>
-$('#datepicker').datepicker({format: 'dd/mm/yyyy'});
-</script>
+</div>
